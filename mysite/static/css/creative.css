@@ -6909,7 +6909,7 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #f4623a !important;
+  background-color: #E8A75D !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -10746,4 +10746,8 @@ header.masthead h1 {
 
 #portfolio .container-fluid .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
+}
+
+#contact {
+  background-color: #345A61;
 }
