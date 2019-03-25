@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="page-section bg-primary" id="account">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="text-white mt-0">{{ user.username }}</h2>
+        <hr class="divider light my-4">
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container text-center my-auto">
+        <div>
+            <h3>Informations sur mon compte</h3>
+            <hr>
+            <p>Email: {{ user.email }}</p>
+        </div>
+        <br>    
+    </div>
+</section>
+</body>
+
+<!-- Footer -->
+<footer class="bg-light py-5 fixed-bottom">
+{% endblock %}
+        

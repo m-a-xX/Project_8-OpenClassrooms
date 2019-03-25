@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<section class="page-section bg-primary" id="about">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="text-white mt-0">Inscription</h2>
+        <hr class="divider light my-4">
+        <p class="text-white-50 mb-4">Créez un compte</p>
+      </div>
+    </div>
+      <div class="container my-auto">
+        <form method="POST">
+          {% csrf_token %}
+          <div class="fieldWrapper my-label text-center">
+            <label for="{{ form.username.id_for_label }}">Nom d'utilisateur : </label>
+            {{ form.username }}
+            {% if form.username.errors %}
+              {% for error in form.username.errors %}
+                <p class="errorform">{{ error }}</p>
+              {% endfor %}
+            {% endif %}
+          </div>
+          <div class="fieldWrapper my-label text-center text-center">
+            <label for="{{ form.email.id_for_label }}">Adresse email : </label>
+            {{ form.email }}
+            {% if form.email.errors %}
+              {% for error in form.email.errors %}
+                <p class="errorform">{{ error }}</p>
+              {% endfor %}
+            {% endif %}
+          </div>
+          <div class="fieldWrapper my-label text-center">
+            <label for="{{ form.password.id_for_label }}">Mot de passe : </label>
+            {{ form.password1 }}
+            {% if form.password1.errors %}
+              {% for error in form.password1.errors %}
+                <p class="errorform">{{ error }}</p>
+              {% endfor %}
+            {% endif %}
+          </div>
+          <div class="fieldWrapper my-label text-center">
+            <label for="{{ form.password.id_for_label }}">Confirmation du mot de passe : </label>
+            {{ form.password2 }}
+            {% if form.password2.errors %}
+              {% for error in form.password2.errors %}
+                <p class="errorform">{{ error }}</p>
+              {% endfor %}
+            {% endif %}
+          </div>
+          <br>
+          
+          <div class="form-group text-center">
+            <button class="btn btn-primary btn-xl mt-50" type="submit">S'inscrire</button>
+          </div>
+        </form>
+        <div class="text-center">
+          Vous êtes déjà inscrit ? <a href="{% url 'login' %}">Connexion</a>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-light py-5 fixed-bottom">
+{% endblock %}
