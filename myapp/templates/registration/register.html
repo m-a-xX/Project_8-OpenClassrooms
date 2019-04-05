@@ -15,45 +15,45 @@
       <div class="container my-auto">
         <form method="POST">
           {% csrf_token %}
-          <div class="fieldWrapper my-label text-center">
+          <div class="text-center">
             <label for="{{ form.username.id_for_label }}">Nom d'utilisateur : </label>
             {{ form.username }}
             {% if form.username.errors %}
               {% for error in form.username.errors %}
-                <p class="errorform">{{ error }}</p>
+                <p>{{ error }}</p>
               {% endfor %}
             {% endif %}
           </div>
-          <div class="fieldWrapper my-label text-center text-center">
+          <div class="text-center">
             <label for="{{ form.email.id_for_label }}">Adresse email : </label>
             {{ form.email }}
             {% if form.email.errors %}
               {% for error in form.email.errors %}
-                <p class="errorform">{{ error }}</p>
+                <p>{{ error }}</p>
               {% endfor %}
             {% endif %}
           </div>
-          <div class="fieldWrapper my-label text-center">
+          <div class="text-center">
             <label for="{{ form.password.id_for_label }}">Mot de passe : </label>
             {{ form.password1 }}
             {% if form.password1.errors %}
               {% for error in form.password1.errors %}
-                <p class="errorform">{{ error }}</p>
+                <p>{{ error }}</p>
               {% endfor %}
             {% endif %}
           </div>
-          <div class="fieldWrapper my-label text-center">
+          <div class="text-center">
             <label for="{{ form.password.id_for_label }}">Confirmation du mot de passe : </label>
             {{ form.password2 }}
             {% if form.password2.errors %}
               {% for error in form.password2.errors %}
-                <p class="errorform">{{ error }}</p>
+                <p>{{ error }}</p>
               {% endfor %}
             {% endif %}
           </div>
           <br>
           
-          <div class="form-group text-center">
+          <div class="text-center">
             <button class="btn btn-primary btn-xl mt-50" type="submit">S'inscrire</button>
           </div>
         </form>

@@ -50,6 +50,10 @@
   font-family: "Scope One", sans-serif;
 }
 
+li { 
+  text-align: left;
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -59,6 +63,7 @@ html {
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block;
+  text-align: center;
 }
 
 body {
@@ -503,16 +508,19 @@ mark,
 
 .figure {
   display: inline-block;
+  text-align: center;
 }
 
 .figure-img {
   margin-bottom: 0.5rem;
   line-height: 1;
+  text-align: center;
 }
 
 .figure-caption {
   font-size: 90%;
   color: #6c757d;
+  text-align: center;
 }
 
 code {
