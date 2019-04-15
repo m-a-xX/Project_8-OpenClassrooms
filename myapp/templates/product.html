@@ -15,25 +15,21 @@
 
 <section>
   <div class="container my-auto">
-    <div>
-      <h3>Vous pouvez remplacer cet aliment par :</h3>
-      <hr>
-    </div>
-    <br>
-    <div class="cont_res">
-      {% for subs in subs %}
-      <div class="box_res">
-        <img class="sub" src="{{ subs.img_url }}">
-        <br>
-        <a href="/product/?name={{ subs.name }}"><p>{{ subs.name }}</p></a>
-        <p><img src="{% static 'img/checkbox.png' %}" alt="Save" title="Save">  Sauvegarder</p>
+    <div class="cont_prod">
+      <div class="box_prod text-center">
+        <img id="nutriscore" src="https://static.openfoodfacts.org/images/misc/nutriscore-{{ nut }}.svg">
       </div>
-      {% endfor %}
+      <div class="box_prod">
+        <img id="prod_nut" src="{{ nut_url }}">
+      </div>
+    </div>
+    <div class="cont_prod">
+      <a href="{{ url }}"><p>Voir la fiche d'OpenFoodFacts</p></a>
     </div>
   </div>
 </section>
 </body>
 
 <!-- Footer -->
-<footer class="bg-light py-5">
-{% endblock %}
+<footer class="bg-light py-5 fixed-bottom">
+    {% endblock %}

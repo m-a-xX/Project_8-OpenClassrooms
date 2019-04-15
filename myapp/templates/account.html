@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-
 {% block content %}
+{% load static %}
 <section class="page-section bg-primary" id="account">
   <div class="container">
     <div class="row justify-content-center">
@@ -13,17 +13,16 @@
 </section>
 <section>
   <div class="container text-center my-auto">
-        <div>
-            <h3>A propos du compte</h3>
-            <hr>
-            <p>Email: {{ user.email }}</p>
-        </div>
-        <br>    
-    </div>
+      <div>
+          <h3>A propos du compte</h3>
+          <hr>
+          <p>{{ user.email }}</p>
+      </div>
+      <br>
+  </div>
 </section>
 </body>
 
 <!-- Footer -->
 <footer class="bg-light py-5 fixed-bottom">
 {% endblock %}
-        

@@ -56,3 +56,13 @@
   });
 
 })(jQuery); // End of use strict
+
+autocomplete.ModelSelect2(
+    url='select2_fk',
+    attrs={
+        # Set some placeholder
+        'data-placeholder': 'Autocomplete ...',
+        # Only trigger autocompletion after 3 characters have been typed
+        'data-minimum-input-length': 3,
+    },
+)

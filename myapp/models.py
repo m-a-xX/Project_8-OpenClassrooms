@@ -1,6 +1,6 @@
 from django.db import models
-#from .products import CATS, load_products
-# Create your models here.
+from django.forms import ModelForm
+from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length = 200)
@@ -20,13 +20,13 @@ class Product(models.Model):
         return self.name
 
 class Reg_product(models.Model):
-    name = models.CharField(max_length = 200)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    user_id = models.IntegerField()
-    nutrition_grade = models.CharField(max_length = 1)
-    url = models.CharField(max_length = 200)
-    img_url = models.CharField(max_length = 200)
-    nut_url = models.CharField(max_length = 200)
-    
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
     def __str__(self):
-        return self.name
+        return self.user
+
+class AuthorForm(ModelForm):
+    class Meta:
+        model = Product
+        fields = ['name']

@@ -1,39 +1,31 @@
 import psycopg2
+from .models import Product, Category, Reg_product
+
+def clean_url(url):
+    url = url.replace("('", '')
+    url = url.replace("',)", '')
+    return url
+
+def get_attrs(product):
+    name = product['name']
+    cat_id = product['category_id']
+    nut_grade = product['nutrition_grade']
+    url = clean_url(product['url'])
+    img_url = clean_url(product['img_url'])
+    nut_url = clean_url(product['nut_url'])
+    return (name, cat_id, nut_grade, url, img_url, nut_url)
+
+def get_product(search):
+    try:
+        product = Product.objects.filter(name__icontains = search)[:1].values()
+        return get_attrs(product[0])
+    except IndexError:
+        return None
 
 def get_substituts(cat_id):
-    try:
-        connection = psycopg2.connect(user = "maxence",
-                                      password = "maxence",
-                                      host = "127.0.0.1",
-                                      port = "5432",
-                                      database = "purbeurre")
-        cursor = connection.cursor()
-        query = (("SELECT * FROM myapp_product WHERE category_id = {};".format(cat_id)))
-        cursor.execute(str(query))
-        record = cursor.fetchall()
-        record.sort(key = lambda x: x[2])
-        count = 0
-        substituts = []
-        for product in record:
-            if count <= 5:
-                try:
-                    idd = product[0]
-                    name = product[1]
-                    nut_grade = product[2]
-                    url = product[3]
-                    img_url = product[4]
-                    nut_url = product[5]
-                    substituts.append((idd, name, nut_grade, url, img_url, nut_url))  
-                except KeyError:
-                    idd = product[0]
-                    name = product[1]
-                    nut_grade = product[2]
-                    url = product[3]
-                    img_url = product[4]
-                    substituts.append((idd, name, nut_grade, url, img_url))        
-            count += 1          
-        print(substituts) 
-    except (Exception, psycopg2.Error) as error :
-        print ("Error while connecting to PostgreSQL", error)
+    subs = Product.objects.filter(category_id = cat_id).order_by('nutrition_grade')[:6].values()
+    return subs
 
-get_stbstituts(200)
+def exact_product(name):
+    product = Product.objects.filter(name__exact = name).values()
+    return get_attrs(product[0])

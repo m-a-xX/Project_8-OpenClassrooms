@@ -10756,3 +10756,76 @@ header.masthead h1 {
   background-image: url("../img/bg-masthead.jpg");
   background-size: 1900px 1200px;
 }
+
+#nav_input {
+  margin: 15px;
+}
+
+img.index_img {
+  margin: 10px;
+}
+
+#results {
+  height: 100px;
+  background-color: black;
+}
+
+.cont_res {
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+}
+
+.box_res {
+  flex: 1 0 calc(33.333% - 80px);
+  height: 400px;
+  margin: 40px;
+}
+
+img.sub {
+  width: 80%;
+  height: 75%;
+}
+
+.cont_prod {
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-flow: wrap;
+}
+
+.box_prod {
+  flex: 1 0 calc(50% - 100px);
+  height: 300px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+img#prod_nut {
+  height: 80%;
+  width: 80%;
+  bottom: 0;
+}
+
+#nutriscore {
+  height: 60%;
+  width: auto;
+}
+
+h2 span { 
+  background-color: #DE9440; 
+}
+
+img.nav_logos {
+  margin: 10px;
+  margin-top: 12px;
+}

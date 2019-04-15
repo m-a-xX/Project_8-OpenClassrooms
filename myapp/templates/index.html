@@ -12,10 +12,12 @@
       </div>
       <div class="col-lg-8 align-self-baseline">
         <p class="text-white-75 font-weight-light mb-5">Trouvez un produit de subsitution pour ceux que vous consommez tous les jours</p>
-      <form action="/index/" method="get">
-        <input type="text" name="">
-        <input type="submit" value="Chercher">
-      </form>
+        <form action="{% url 'results' %}" method="get">
+          {% csrf_token %}
+          <input type="text" name="search" placeholder="Chercher">
+          <input type="submit" value="Chercher">
+        </form>
+        <p class="text-white"><br>{{ error }}</p>
       </div>
     </div>
   </div>
@@ -33,11 +35,11 @@
     </div>
     <div class="row justify-content-around align-items-center">
       <figure>
-        <img src="{% static 'img/colette.jpg' %}" title="Colette" alt="Colette" />
+        <img class="index_img" src="{% static 'img/colette.jpg' %}" title="Colette" alt="Colette" />
         <figcaption>Colette</figcaption>
       </figure>
       <figure>
-        <img src="{% static 'img/remy.jpg' %}" title="Remy" alt="Remy" />
+        <img class="index_img" src="{% static 'img/remy.jpg' %}" title="Remy" alt="Remy" />
         <figcaption>Remy</figcaption>
       </figure>
   </div>
