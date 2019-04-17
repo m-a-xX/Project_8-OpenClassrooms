@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-
+{% load extras %}
 <section class="page-section bg-primary" id="results" style="background-image: url({{ img_url }})">
   <div class="container">
     <div class="row justify-content-center">
@@ -21,13 +21,28 @@
     </div>
     <br>
     <div class="cont_res">
-      {% for subs in subs %}
+      {% for sub in subs %}
+      {% if user.is_authenticated and is_reg|get_item:sub.id == 0 %}
       <div class="box_res">
-        <img class="sub" src="{{ subs.img_url }}">
+        <img class="sub" src="{{ sub.img_url }}">
         <br>
-        <a href="/product/?name={{ subs.name }}"><p>{{ subs.name }}</p></a>
-        <p><img src="{% static 'img/checkbox.png' %}" alt="Save" title="Save">  Sauvegarder</p>
+        <a href="/product/?name={{ sub.name }}"><p>{{ sub.name }}</p></a>
+        <p><a href="/reg_product/?id={{ sub.id }}"><img src="{% static 'img/checkbox.png' %}" alt="Save" title="Save">  Sauvegarder</p></a>
       </div>
+      {% elif user.is_authenticated and is_reg|get_item:sub.id == 1 %}
+      <div class="box_res">
+        <img class="sub" src="{{ sub.img_url }}">
+        <br>
+        <a href="/product/?name={{ sub.name }}"><p>{{ sub.name }}</p></a>
+        <p><img src="{% static 'img/save-solid.png' %}" alt="Save" title="Save">  Sauvegarder</p>
+      </div>
+      {% else %}
+      <div class="box_res">
+        <img class="sub" src="{{ sub.img_url }}">
+        <br>
+        <a href="/product/?name={{ sub.name }}"><p>{{ sub.name }}</p></a>
+      </div>
+      {% endif %}
       {% endfor %}
     </div>
   </div>
@@ -37,3 +52,4 @@
 <!-- Footer -->
 <footer class="bg-light py-5">
 {% endblock %}
+{{ is_reg|get_item:sub.id }}

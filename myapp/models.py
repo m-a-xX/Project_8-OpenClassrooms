@@ -23,9 +23,6 @@ class Reg_product(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.user
-
 class AuthorForm(ModelForm):
     class Meta:
         model = Product

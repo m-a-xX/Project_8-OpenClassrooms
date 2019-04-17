@@ -1,5 +1,6 @@
 import psycopg2
 from .models import Product, Category, Reg_product
+from django.contrib.auth.models import User
 
 def clean_url(url):
     url = url.replace("('", '')
@@ -29,3 +30,14 @@ def get_substituts(cat_id):
 def exact_product(name):
     product = Product.objects.filter(name__exact = name).values()
     return get_attrs(product[0])
+
+def save_product(product, user):
+    row = Reg_product(product=Product.objects.get(id=product), user=User.objects.get(id=user))
+    row.save()
+
+def is_product_reg(product, user):
+    test = Reg_product.objects.filter(product=product).filter(user=user)
+    if not test:
+        return 0
+    else:
+        return 1

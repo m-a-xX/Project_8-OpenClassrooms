@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render, render_to_response
-from myapp.classes import get_product, get_substituts, exact_product
+from myapp.classes import get_product, get_substituts, exact_product, save_product, is_product_reg
 from myapp.forms import RegistrationForm, SearchForm
 from django.core.paginator import Paginator
 
@@ -36,14 +36,20 @@ def results(request):
         }
         return render(request, 'index.html', context)
     else:
-        subs = get_substituts(product[1])
+        substituts = get_substituts(product[1])
+        subs = substituts
         paginator = Paginator(subs, 6)
         page = request.GET.get('page')
         subs = paginator.get_page(page)
+        user = request.user
+        is_reg = {}
+        for sub in substituts:
+            is_reg[sub['id']] = is_product_reg(sub['id'], user.id)
         context = {
             'name': product[0],
             'img_url': product[4],
-            'subs': subs
+            'subs': subs,
+            'is_reg': is_reg
         }
         return render(request, 'results.html', context)
 
@@ -77,4 +83,7 @@ def product(request):
         return render(request, 'product.html', context)
 
 def reg_product(request):
-    return render(request, 'results.html')
+    product = int(request.GET.get('id', ''))
+    user = request.user
+    save_product(product, user.id)
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
