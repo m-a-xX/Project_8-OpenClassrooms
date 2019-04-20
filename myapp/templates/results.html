@@ -25,6 +25,9 @@
       {% if user.is_authenticated and is_reg|get_item:sub.id == 0 %}
       <div class="box_res">
         <img class="sub" src="{{ sub.img_url }}">
+        <a href="#" class="badge-corner_r">
+          <span class="notify-badge">{{ sub.nutrition_grade }}</span>
+        </a>
         <br>
         <a href="/product/?name={{ sub.name }}"><p>{{ sub.name }}</p></a>
         <p><a href="/reg_product/?id={{ sub.id }}"><img src="{% static 'img/checkbox.png' %}" alt="Save" title="Save">  Sauvegarder</p></a>
@@ -32,6 +35,9 @@
       {% elif user.is_authenticated and is_reg|get_item:sub.id == 1 %}
       <div class="box_res">
         <img class="sub" src="{{ sub.img_url }}">
+        <a href="#" class="badge-corner_r">
+          <span class="notify-badge">{{ sub.nutrition_grade }}</span>
+        </a>
         <br>
         <a href="/product/?name={{ sub.name }}"><p>{{ sub.name }}</p></a>
         <p><img src="{% static 'img/save-solid.png' %}" alt="Save" title="Save">  Sauvegarder</p>
@@ -39,6 +45,9 @@
       {% else %}
       <div class="box_res">
         <img class="sub" src="{{ sub.img_url }}">
+        <a href="#" class="badge-corner_r">
+          <span class="notify-badge">{{ sub.nutrition_grade }}</span>
+        </a>
         <br>
         <a href="/product/?name={{ sub.name }}"><p>{{ sub.name }}</p></a>
       </div>

@@ -10776,6 +10776,7 @@ img.index_img {
   flex: 1 0 calc(33.333% - 80px);
   height: 400px;
   margin: 40px;
+  position: relative;
 }
 
 img.sub {
@@ -10836,6 +10837,7 @@ img.nav_logos {
   width: 33.333%;
   height: 400px;
   justify-content: space-around;
+  position: relative;
 }
 
 img.fav {
@@ -10844,10 +10846,18 @@ img.fav {
   position: relative;
 }
 
-span.notify-badge {
-  position: relative;
-  top: 10%;
-  left: -10px;
+.badge-corner {
+  position: absolute;
+  top: -20px;
+  right: 15%;
+  width: 30px;
+  border-radius: 10px;
+  background-color: #E8A75D;
+}
+
+.notify-badge {
+  font-size: 25px;
+  color: #345A61;
 }
 
 h1.fav_title_error {
@@ -10856,4 +10866,13 @@ h1.fav_title_error {
 
 #favs {
   height: 100px;
+}
+
+.badge-corner_r {
+  position: absolute;
+  top: -17px;
+  right: 7%;
+  width: 30px;
+  border-radius: 10px;
+  background-color: #E8A75D;
 }

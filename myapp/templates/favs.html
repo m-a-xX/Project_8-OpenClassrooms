@@ -25,7 +25,9 @@
       {% for fav in favs %}
       <div class="box_fav">
         <img class="fav" src="{{ fav.img_url }}">
-        <span class="notify-badge">{{ fav.nutrition_grade }}</span>
+        <a href="#" class="badge-corner">
+          <span class="notify-badge">{{ fav.nutrition_grade }}</span>
+        </a>
         <br>
         <a href="/product/?name={{ fav.name }}"><p>{{ fav.name }}</p></a>
       </div>

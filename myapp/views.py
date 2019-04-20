@@ -44,7 +44,6 @@ def results(request):
         user = request.user
         is_reg = {}
         for sub in substituts:
-            print(sub['name'], sub['id'])
             is_reg[sub['id']] = is_product_reg(sub['id'], user.id)
         context = {
             'name': product[0],
