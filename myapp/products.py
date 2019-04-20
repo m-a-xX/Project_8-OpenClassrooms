@@ -63,6 +63,7 @@ def load_products():
                 except KeyError as e:
                     atts = (nbr, name, CATS[i], nutrition_grade, url, image, i)
                 name = name.replace("\n", " ")
+                name = name.replace("&#39;", "'")
                 product = Product(name = name, category = cat, \
                                   nutrition_grade = nutrition_grade, url = url, \
                                   img_url = image, nut_url = nutrition_image)

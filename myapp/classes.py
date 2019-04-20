@@ -32,7 +32,7 @@ def exact_product(name):
     return get_attrs(product[0])
 
 def save_product(product, user):
-    row = Reg_product(product=Product.objects.get(id=product), user=User.objects.get(id=user))
+    row = Reg_product(product=Product.objects.get(id=product), user=User.objects.get(id=user), nutrition_grade=Product.objects.filter(id=product).values('nutrition_grade')[0]['nutrition_grade'], img_url=Product.objects.filter(id=product).values('img_url')[0]['img_url'], name=Product.objects.filter(id=product).values('name')[0]['name'])
     row.save()
 
 def is_product_reg(product, user):
@@ -41,3 +41,7 @@ def is_product_reg(product, user):
         return 0
     else:
         return 1
+
+def find_favs(user):
+    favs = Reg_product.objects.filter(user=user).values()
+    return favs

@@ -22,6 +22,9 @@ class Product(models.Model):
 class Reg_product(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length = 200)
+    nutrition_grade = models.CharField(max_length = 1)
+    img_url = models.CharField(max_length = 200)
 
 class AuthorForm(ModelForm):
     class Meta:

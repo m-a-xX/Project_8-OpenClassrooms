@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<section class="page-section bg-primary" id="favs" style="background-image: url({{ img_url }})">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <h2 class="text-white mt-0"><span>Substituts favoris</span></h2>
+        <hr class="divider light my-4">
+      </div>
+    </div>
+  </div>
+</section>
+
+{% if len != 0 %}
+<section>
+  <div class="container my-auto">
+    <div>
+      <h3>Voici les aliments que vous avez sauvegardés :</h3>
+      <hr>
+    </div>
+    <br>
+    <div class="cont_fav">
+      {% for fav in favs %}
+      <div class="box_fav">
+        <img class="fav" src="{{ fav.img_url }}">
+        <span class="notify-badge">{{ fav.nutrition_grade }}</span>
+        <br>
+        <a href="/product/?name={{ fav.name }}"><p>{{ fav.name }}</p></a>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="pagination">
+      <span class="step-links">
+        {% if favs.has_previous %}
+          <a href="?page=1">&laquo; first</a>
+          <a href="?page={{ favs.previous_page_number }}">previous</a>
+        {% endif %}
+        <span class="current">
+          Page {{ favs.number }} of {{ favs.paginator.num_pages }}.
+        </span>
+        {% if favs.has_next %}
+          <a href="?page={{ favs.next_page_number }}">next</a>
+          <a href="?page={{ favs.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+        </span>
+      </div>
+  </div>
+</section>
+</body>
+
+{% else %}
+<section>
+    <div class="container my-auto">
+      <h1 class="fav_title_error">Vous n'avez enregistré aucun produits</p>
+    </div>
+  </section>
+  </body>
+{% endif %}
+
+{% if len > 3 %}
+<footer class="bg-light py-5">
+{% else %}
+<footer class="bg-light py-5 fixed-bottom">
+{% endif %}
+
+
+{% endblock %}

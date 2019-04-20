@@ -10765,11 +10765,6 @@ img.index_img {
   margin: 10px;
 }
 
-#results {
-  height: 100px;
-  background-color: black;
-}
-
 .cont_res {
   height: auto;
   display: flex;
@@ -10828,4 +10823,37 @@ h2 span {
 img.nav_logos {
   margin: 10px;
   margin-top: 12px;
+}
+
+.cont_fav {
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+}
+
+.box_fav {
+  width: 33.333%;
+  height: 400px;
+  justify-content: space-around;
+}
+
+img.fav {
+  width: 65%;
+  height: 75%;
+  position: relative;
+}
+
+span.notify-badge {
+  position: relative;
+  top: 10%;
+  left: -10px;
+}
+
+h1.fav_title_error {
+  text-align: center;
+}
+
+#favs {
+  height: 100px;
 }

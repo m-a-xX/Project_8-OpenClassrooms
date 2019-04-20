@@ -12,4 +12,5 @@ urlpatterns = [
     path('results/', v.results, name='results'),
     path('product/', v.product, name='product'),
     path('reg_product/', v.reg_product, name='reg_product'),
+    path('favs/', v.favs, name='favs'),
 ]
