@@ -35,17 +35,22 @@
 <body id="page-top">
 
   <!-- Navigation -->
-  <nav class="navbacreativer navbar-expand-lg imgnavbar-light fixed-top py-3" id="mainNav">
+  <nav class="navbacreativer navbar-expand-lg imgnavbar-light fixed-top py-3 navbar-toggleable-md" id="mainNav">
     <div class="container-fluid">
-      <div class="row justify-content-between align-items-center">
-        <div>
+      <div class="row align-items-center navrow">
+        <div id="navleft">
           <a href="/">
-          <img src="{% static 'rsz_logo.png' %}" alt="Logo" title="Logo">
+          <img src="{% static 'rsz_logo.png' %}" alt="Logo" title="Logo" class="pblogo">
           </a>
           <a class="navbar-brand js-scroll-trigger" href="/">Pur Beurre</a>
         </div>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto my-2 my-lg-0">
+        <div class="resmenu">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#mydropdown">
+            <img src="{% static 'img/menu.png' %}">
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="mydropdown">
+          <ul class="nav navbar-nav ml-auto my-2 my-lg-0">
             <li class="nav-item">
               <form action="{% url 'results' %}" method="get">
                 {% csrf_token %}
