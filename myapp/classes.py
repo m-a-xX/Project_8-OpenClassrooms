@@ -64,5 +64,5 @@ def is_product_reg(product, user):
 
 def find_favs(user):
     """Find whats whats products were saved by the user with his id"""
-    favs = Reg_product.objects.filter(user=user).values()
+    favs = Reg_product.objects.filter(user=user).order_by('id').values()
     return favs

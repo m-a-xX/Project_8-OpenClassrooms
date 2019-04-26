@@ -10877,6 +10877,11 @@ h1.fav_title_error {
   background-color: #E8A75D;
 }
 
+.navlogos {
+  margin: 4px;
+  margin-top: 11px;
+}
+
 @media (max-width: 992px) {
   .resmenu {
     margin-left: auto;
@@ -10897,6 +10902,12 @@ h1.fav_title_error {
     justify-content: space-around;
     position: relative;
   }
+  .navlogos {
+    margin-left: 20px;
+  }
+  #nav_input {
+    margin-left: 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -10911,6 +10922,12 @@ h1.fav_title_error {
     height: 400px;
     justify-content: space-around;
     position: relative;
+  }
+  .navlogos {
+    margin-left: 20px;
+  }
+  #nav_input {
+    margin-left: 20px;
   }
 }
 

@@ -59,20 +59,20 @@
             </li>
             {% if user.is_authenticated %}
               <li class="nav-item">
-                <a href="{% url 'account' %}"> <img class="nav_logos" src="{% static 'img/rsz_account.png' %}" title="Mon compte" alt="Mon compte" ></a>
+                <a href="{% url 'account' %}"> <img class="navlogos" src="{% static 'img/rsz_account.png' %}" title="Mon compte" alt="Mon compte" ></a>
               </li>
               <li class="nav-item">
-                <a href="{% url 'favs' %}"> <img class="nav_logos" src="{% static 'img/rsz_carrot.png' %}" title="Mes aliments" alt="Mes aliments"></a>
+                <a href="{% url 'favs' %}"> <img class="navlogos" src="{% static 'img/rsz_carrot.png' %}" title="Mes aliments" alt="Mes aliments"></a>
               </li>
               <li class="nav-item">
-                <a href="{% url 'logout' %}"> <img class="nav_logos" src="{% static 'img/rsz_logout.png' %}" title="Se déconnecter" alt="Se déconnecter"></a>
+                <a href="{% url 'logout' %}"> <img class="navlogos" src="{% static 'img/rsz_logout.png' %}" title="Se déconnecter" alt="Se déconnecter"></a>
               </li>
             {% else %}
                 <li class="nav-item">
-                  <a href="{% url 'register' %}"> <img class="nav_logos" src="{% static 'img/rsz_signup.png' %}" title="S'inscrire" alt="S'inscrire"></a>
+                  <a href="{% url 'register' %}"> <img class="navlogos" src="{% static 'img/rsz_signup.png' %}" title="S'inscrire" alt="S'inscrire"></a>
                 </li>
                 <li class="nav-item">
-                  <a href="{% url 'login' %}"> <img class="nav_logos" src="{% static 'img/rsz_login.png' %}" title="Se connecter" alt="Se connecter"></a>
+                  <a href="{% url 'login' %}"> <img class="navlogos" src="{% static 'img/rsz_login.png' %}" title="Se connecter" alt="Se connecter"></a>
                 </li>
             {% endif %}
           </ul>

@@ -12,7 +12,7 @@ def index(request):
     return render(request, 'index.html')
 
 
-def credits(request):
+def legal_mentions(request):
     """Credits pages"""
     return render(request, 'credits.html')
 

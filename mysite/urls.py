@@ -5,10 +5,10 @@ from myapp import views as v
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', v.index),
+    path('', v.index, name='home'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('register', v.register, name='register'),
-    path('credits/', v.credits, name='credits'),
+    path('credits/', v.legal_mentions, name='credits'),
     path('account/', v.account, name='account'),
     path('results/', v.results, name='results'),
     path('product/', v.product, name='product'),
