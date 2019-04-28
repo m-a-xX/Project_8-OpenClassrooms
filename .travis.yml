@@ -2,8 +2,17 @@ language: python
 python:
   - "3.6"
 
+services:
+  - postgresql
+
 install:
   - pip install -r requirements.txt
+
+before_script:
+  - psql -c 'create database purbeurre;' -U postgres
+  - psql -c 'create user maxence with password 'maxence';' -U postgres
+  - psql -c 'grant all privileges on database purbeurre to maxence;' -U postgres
+
 
 script:
   - python manage.py test
