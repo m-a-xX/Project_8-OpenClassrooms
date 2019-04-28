@@ -5,16 +5,11 @@ python:
 services:
   - postgresql
 
+before_install:
+  - export DJANGO_SETTINGS_MODULE=myapp.settings
+
 install:
   - pip install -r requirements.txt
 
-before_script:
-#  - psql -c 'create database purbeurre;' -U postgres
-#  - psql -c "CREATE USER maxence WITH PASSWORD 'maxence';" -U postgres
-#  - psql -c 'grant all privileges on database purbeurre to maxence;' -U postgres
-#  - psql -c 'alter user travisci createdb;' -U postgres
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - cp config/database.yml.travis config/database.yml
-
 script:
-  - sudo python manage.py test
+  - python manage.py test
