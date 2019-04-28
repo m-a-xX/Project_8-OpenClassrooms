@@ -14,7 +14,7 @@ before_script:
 #  - psql -c 'grant all privileges on database purbeurre to maxence;' -U postgres
 #  - psql -c 'alter user travisci createdb;' -U postgres
   - psql -c 'create database travis_ci_test;' -U postgres
-
+  - cp config/database.yml.travis config/database.yml
 
 script:
   - sudo python manage.py test
