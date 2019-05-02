@@ -7,12 +7,14 @@ For more information on this file, see
 https://docs.djangoproject.com/en/2.1/howto/deployment/wsgi/
 """
 
+import newrelic.agent
 import os
 
-from django.core.wsgi import get_wsgi_application
-from whitenoise.django import DjangoWhiteNoise
+newrelic.agent.initialize('/home/ubuntu/Project_8-OpenClassrooms/newrelic.ini')
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.__init__") 
+
+from django.core.wsgi import get_wsgi_application 
 
 application = get_wsgi_application()
-application = DjangoWhiteNoise(application)
+application = newrelic.agent.wsgi_application()(application)

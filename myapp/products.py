@@ -25,8 +25,11 @@ def load_products():
     '''Import products from API and add them in the database'''
     nbr = 0
     for category in CATS:
-        cat = Category(name=category)
-        cat.save()
+        try:
+            cat = Category.objects.get(name=category)
+        except:
+            cat = Category(name=category)
+            cat.save()
         payload = {
             'action': 'process',
             'tagtype_0': 'categories',
@@ -63,11 +66,14 @@ def load_products():
                     pass
                 name = name.replace("\n", " ")
                 name = name.replace("&#39;", "'")
-                product = Product(name=name, category=cat, \
-                                  nutrition_grade=nutrition_grade, url=url,\
-                                  img_url=image, nut_url=nutrition_image)
-                nbr += 1
-                product.save()
+                try:
+                    product = Product.objects.get(name=name, category=cat)
+                except:
+                    product = Product(name=name, category=cat, \
+                                    nutrition_grade=nutrition_grade, url=url,\
+                                    img_url=image, nut_url=nutrition_image)
+                    nbr += 1
+                    product.save()
         except KeyError:
             pass
 
