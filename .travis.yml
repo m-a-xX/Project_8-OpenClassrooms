@@ -9,7 +9,7 @@ env:
   - DJANGO=2.1
 
 before_install:
-  - export DJANGO_SETTINGS_MODULE=mysite.settings
+  - export DJANGO_SETTINGS_MODULE=settings.__init__
 
 install:
   - pip install -r requirements.txt
