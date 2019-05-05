@@ -40,6 +40,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django_nose',
     'dal',
     'dal_select2',
     'dal_queryset_sequence',
@@ -145,5 +146,12 @@ LOGOUT_REDIRECT_URL = '/'
 # https://warehouse.python.org/project/whitenoise/
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=myapp',
+]
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
 django_heroku.settings(locals())

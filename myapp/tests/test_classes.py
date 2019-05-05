@@ -1,10 +1,17 @@
 """File that contains classes tests"""
 from django.test import TestCase
 from myapp.classes import *
+from myapp.models import Product, Category, Reg_product
 
 
 class TestClasses(TestCase):
     """Classes tests class"""
+
+    def setUp(self):
+        """Create category"""
+        self.cat = Category.objects.create(
+            name='Sandwichs'
+        )
 
     def test_clean_url(self):
         url = "('https://fr.openfoodfacts.org/produit/3560070783038/poulet-curry-carrefour',)"

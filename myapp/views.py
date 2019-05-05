@@ -58,6 +58,7 @@ def register(request):
         form = RegistrationForm()
     return render(request, 'registration/register.html', {'form': form})
 
+
 def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
