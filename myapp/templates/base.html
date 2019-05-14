@@ -59,10 +59,10 @@
             </li>
             {% if user.is_authenticated %}
               <li class="nav-item">
-                <a href="{% url 'account' %}"> <img class="navlogos" src="{% static 'img/rsz_account.png' %}" title="Mon compte" alt="Mon compte" ></a>
+                <a href="{% url 'profil' %}"> <img class="navlogos" src="{% static 'img/rsz_account.png' %}" title="Mon compte" alt="Mon compte" ></a>
               </li>
               <li class="nav-item">
-                <a href="{% url 'favs' %}"> <img class="navlogos" src="{% static 'img/rsz_carrot.png' %}" title="Mes aliments" alt="Mes aliments"></a>
+                <a href="{% url 'favorites' %}"> <img class="navlogos" src="{% static 'img/rsz_carrot.png' %}" title="Mes aliments" alt="Mes aliments"></a>
               </li>
               <li class="nav-item">
                 <a href="{% url 'logout' %}"> <img class="navlogos" src="{% static 'img/rsz_logout.png' %}" title="Se déconnecter" alt="Se déconnecter"></a>

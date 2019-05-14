@@ -29,7 +29,7 @@ class TestViews(TestCase):
     def test_account_GET(self):
         """Test account details view"""
         client = Client()
-        response = client.get(reverse('account'))
+        response = client.get(reverse('profil'))
         self.assertEquals(response.status_code, 200)
 
     def test_results_GET(self):
@@ -58,5 +58,5 @@ class TestViews(TestCase):
     def test_favs_GET(self):
         """Test favorits products view"""
         client = Client()
-        response = client.get(reverse('favs'))
+        response = client.get(reverse('favorites'))
         self.assertEquals(response.status_code, 200)

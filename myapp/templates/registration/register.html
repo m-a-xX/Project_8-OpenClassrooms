@@ -13,6 +13,7 @@
       </div>
     </div>
       <div class="container my-auto">
+        {% if not message %}
         <form method="POST">
           {% csrf_token %}
           <div class="text-center">
@@ -60,6 +61,8 @@
         <div class="text-center">
           Vous êtes déjà inscrit ? <a href="{% url 'login' %}">Connexion</a>
         </div>
+        {% endif %}
+        <p><br>{{ message }}</p>
     </div>
   </div>
 </section>

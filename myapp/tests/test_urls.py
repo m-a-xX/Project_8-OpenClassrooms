@@ -24,8 +24,8 @@ class TestUrls(SimpleTestCase):
 
     def test_account_url_is_resolved(self):
         """Test the account page url"""
-        url = reverse('account')
-        self.assertEquals(resolve(url).func, account)
+        url = reverse('profil')
+        self.assertEquals(resolve(url).func, profil)
 
     def test_results_url_is_resolved(self):
         """Test the results page url"""
@@ -44,5 +44,5 @@ class TestUrls(SimpleTestCase):
 
     def test_favs_url_is_resolved(self):
         """Test the favorits products url"""
-        url = reverse('favs')
-        self.assertEquals(resolve(url).func, favs)
+        url = reverse('favorites')
+        self.assertEquals(resolve(url).func, favorites)
