@@ -1,9 +1,13 @@
-# Créez une plateforme pour amateurs de Nutella
+# Create a platform for Nutella lovers
 
-### Principe
+### Principle
 
-Le site permet à quiconque de trouver un substitut sain à un aliment considéré comme "Trop gras, trop sucré, trop salé". De plus, l'utilisateur pourra créer un compte pour sauvegarder des substituts dans le but de les consulter ultérieurement.
-Le site récupère les produits et leurs informations depuis l'API d'OpenFoodFacts.
+The site allows anyone to find a healthy substitute for food considered "Too Fatty, Too Sweet, Too Salty". In addition, the user can create an account to save substitutes for the purpose of consulting them later.
 
-### Lien du site
+### Site link
 
+https://purbeurre-alimentation.herokuapp.com
+
+### How it works
+
+The site retrieves the products and their information from the OpenFoodFacts API. User accounts and favorites are saved in an SQL database which interacts with the backend using Python MySQL Connector. The backend of the site is managed with Python Django.
